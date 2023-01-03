@@ -20,4 +20,9 @@ class ClientesController extends Controller
         }
         return view('admin.clientes.edit', compact('clientes'));
     }
+    public function show()
+    {
+        $clientes = clientes::get();
+        return view('admin.clientes.show', compact('clientes'));
+}
 }
