@@ -36,7 +36,7 @@ class ClientesController extends Controller
     
         return redirect()
           ->route('clientes.show') 
-          ->with('message', 'Cliente foi deletado');
+          ->with('messageDelete', 'Cliente foi deletado');
         
     }
     public function create(){

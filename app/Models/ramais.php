@@ -11,4 +11,9 @@ class ramais extends Model
     protected $table = 'ramais';
 
     protected $fillable = ['ramal','nome','tipo','bina'];
+
+    public function cliente(){
+        return $this->belongsTo(clientes::class);
+    }
+    
 }

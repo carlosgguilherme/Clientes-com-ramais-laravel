@@ -12,4 +12,8 @@ class dids extends Model
 
     protected $fillable = ['numero', 'descricao'];
 
+    public function cliente(){
+        return $this->belongsTo(clientes::class);
+    }
+
 }
