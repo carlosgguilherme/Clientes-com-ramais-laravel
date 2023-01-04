@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('tipo');
             $table->string('bina');
-            $table->string('cliente_id');
+            $table->foreignId('cliente_id')->constrained('clientes');
             $table->timestamps();
         });
     }

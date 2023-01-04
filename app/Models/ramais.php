@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ramais extends Model
 {
     use HasFactory;
+    protected $table = 'ramais';
+
+    protected $fillable = ['ramal','nome','tipo','bina'];
 }
