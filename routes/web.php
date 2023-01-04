@@ -11,6 +11,8 @@ Route::get('/clientes/edit/{id}', [ClientesController::class, 'edit'])->name('cl
 Route::put('/clientes/update/{id}', [ClientesController::class, 'update'])->name('clientes.update');
 Route::get('/clientes/show', [ClientesController::class, 'show'])->name('clientes.show');
 Route::delete('/clientes/{id}', [ClientesController::class, 'destroy'])->name('clientes.destroy');
+Route::post('/clientes', [ClientesController::class, 'store'])->name('clientes.store');
+
 
 
 Route::get('/', function () {
