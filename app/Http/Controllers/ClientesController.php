@@ -64,4 +64,11 @@ class ClientesController extends Controller
       ->with('message', 'O Cliente foi editado com sucesso');
     
       }
+      public function search(Request $request){
+        $filters = $request->except('_token');
+        $clientes = clientes::where('nome','LIKE', "%{$request->search}%")
+                      ->orWhere('telefone','LIKE', "%{$request->search}%")
+                        ->paginate();
+        return view('admin.clientes.show', compact('clientes', 'filters'));
+      }
 }

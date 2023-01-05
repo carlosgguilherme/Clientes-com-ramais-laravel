@@ -13,7 +13,7 @@ Route::get('/ramais/show', [RamaisController::class, 'show'])->name('ramais.show
 Route::delete('/ramais/{id}', [RamaisController::class, 'destroy'])->name('ramais.destroy');
 Route::post('/ramais', [RamaisController::class, 'store'])->name('ramais.store');
 
-
+    
 Route::get('/dids', [DidsController::class, 'index'])->name('dids.index');
 Route::get('/dids/create', [DidsController::class, 'create'])->name('dids.create');
 Route::get('/dids/edit/{id}', [DidsController::class, 'edit'])->name('dids.edit');

@@ -1,13 +1,28 @@
 @include('admin.layouts.header')
 <section class="card">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header row">
+            <div class="col">
             <td><a href="{{ route('clientes.create') }}"><button class="btn btn-success btn-sm" type="submit">Criar
                         Cliente</button></a></td>
+            </div>
+            <div class="col input-group">
+            <td>
+                <form action="{{ route('clientes.search') }}" method="post">
+                    @csrf
+                    <input class="form-control rounded" type="text" name="search" placeholder="Filtrar"> 
+                        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                    </div>
+                </form>
+            </td>
+            
         </div>
         <section class="content" class="background">
             <div class="content-title nav flex-column nav justify-content-left">
                 <div class="container-fluid">
+
+
+                    <br>
                     <ul class="nav flex-column nav justify-content-left" style="margin-left: 1px;margin-right: 1px;">
                         <li class="nav-item">
                             <h3>CLIENTES</h3>
