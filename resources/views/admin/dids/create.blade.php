@@ -1,5 +1,12 @@
+@include('admin.layouts.header')
 <section class="card">
 
+    @if (session('messages'))
+        <div class="btn btn-success">
+            {{ session('messages') }}
+        </div>
+    @endif
+<section class="card">
     <section class="content" class="background">
         <div class="content-title nav flex-column nav justify-content-left">
             <div class="container-fluid">
@@ -27,11 +34,9 @@
                                 aria-label="Floating label select example" name="clientes_id">
 
                                 <option selected>Selecione</option>
-                                <?php $cliente = new Clientes();
-                                    $info = $cliente->buscarDados();
-                                    foreach ($info as $dados){ ?>
-                                <option value="<?= $dados['id'] ?>"><?= $dados['nome']?></option>
-                                <?php } ?>
+                                    @foreach ($clientes as $cliente) 
+                                <option value="{{ $cliente->id}}">{{ $cliente->nome}}</option>
+                                @endforeach
                             </select>
                             <label for="floatingSelect">Clientes</label>
                         </div>
@@ -41,3 +46,4 @@
                     </div>
                 </form>
     </section>
+@include('admin.layouts.footer')
