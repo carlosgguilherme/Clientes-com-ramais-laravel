@@ -3,18 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-<<<<<<< HEAD
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-=======
 Route::get('/ramais', [RamaisController::class, 'index'])->name('ramais.index');
 Route::get('/ramais/create', [RamaisController::class, 'create'])->name('ramais.create');
 Route::get('/ramais/edit/{id}', [RamaisController::class, 'edit'])->name('ramais.edit');
@@ -47,27 +35,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-
-
->>>>>>> 73563cc (Web e dids)
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-<<<<<<< HEAD:routes/web--.php
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
 require __DIR__.'/auth.php';
-=======
+
 require 'routes/auth.php';
 
->>>>>>> f633725 (update):routes/web.php
+
