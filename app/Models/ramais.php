@@ -10,7 +10,7 @@ class ramais extends Model
     use HasFactory;
     protected $table = 'ramais';
 
-    protected $fillable = ['ramal','nome','tipo','bina'];
+    protected $fillable = ['ramal','nome_ramal','tipo','bina','cliente_id'];
 
     public function cliente(){
         return $this->belongsTo(clientes::class);

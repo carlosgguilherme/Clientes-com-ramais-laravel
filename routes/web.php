@@ -21,7 +21,7 @@ Route::get('/ramais/edit/{id}', [RamaisController::class, 'edit'])->name('ramais
 Route::put('/ramais/update/{id}', [RamaisController::class, 'update'])->name('ramais.update');
 Route::get('/ramais/show', [RamaisController::class, 'show'])->name('ramais.show');
 Route::delete('/ramais/{id}', [RamaisController::class, 'destroy'])->name('ramais.destroy');
-Route::post('/ramais', [RamaisController::class, 'store'])->name('ramais.store');
+Route::post('/ramais/store', [RamaisController::class, 'store'])->name('ramais.store');
 
     
 Route::get('/dids', [DidsController::class, 'index'])->name('dids.index');
@@ -46,7 +46,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-require 'routes/auth.php';
+
 
 
 >>>>>>> 73563cc (Web e dids)
@@ -55,6 +55,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD:routes/web--.php
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -66,3 +67,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+=======
+require 'routes/auth.php';
+
+>>>>>>> f633725 (update):routes/web.php

@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -44,7 +45,12 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
+           
+        });
+        $this->renderable(function (QueryException $e, $request) {
+            return redirect()
+          ->route('clientes.show') 
+          ->with('messageDelete', 'Não é possivel deletar este cliente, termine suas conexões');;
         });
     }
 }

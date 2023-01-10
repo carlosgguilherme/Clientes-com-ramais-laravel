@@ -24,7 +24,15 @@ class StoreUpdateDids extends FormRequest
     public function rules()
     {
         return [
-         
+         'numero' => ['required'],
+         'descricao' => ['required'],
+         'cliente_id' => ['required'],
+        ];
+    } public function messages()
+    {
+        return[
+            'numero' => 'ERRO',
+            'descricao' => 'ERRO',
         ];
     }
 }

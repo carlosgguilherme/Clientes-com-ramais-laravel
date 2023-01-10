@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('ramais', function (Blueprint $table) {
             $table->id();
             $table->string('ramal');
-            $table->string('nome');
+            $table->string('nome_ramal');
             $table->string('tipo');
             $table->string('bina');
             $table->foreignId('cliente_id')->constrained('clientes');

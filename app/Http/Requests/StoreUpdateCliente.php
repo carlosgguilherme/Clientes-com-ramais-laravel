@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule as ValidationRule;
 
 class StoreUpdateCliente extends FormRequest
 {
@@ -23,27 +25,53 @@ class StoreUpdateCliente extends FormRequest
      */
     public function rules()
     {   
-        $id = $this->segment(2);
+        $id = $this->segment(3);
         
         return [
           
             'nome' => ['required','min:3','max:160'],
             'endereco' => ['required','min:5','max:160'],
-            'email' => ['required','max:160'],
+            'email' => [
+
+                'required',
+                "unique:clientes,email,($id),id"
+
+        ],
             'telefone' => ['required','min:8'],
-            'tipo' => ['required'],
-            'documento' => ['required', 'min:11',"unique:clientes,documento,{$id},id"],
+            'tipo' => ['required','min:5'],
+            'documento' => [
+
+                'required',
+                "unique:clientes,documento,($id),id"
+
+            ],
         ];
     }
     public function messages()
     {
         return[
-        'nome' => 'Por favor, Insira um Nome',
-        'endereco' => 'Por favor, Insira um Endereço!',
-        'email' => 'Por favor, Insira um E-mail!',
-        'telefone' => 'Por favor, Insira um Telefone!',
-        'tipo' => 'Por favor, Selecione um Tipo!',
-        'documento' => 'Por favor, Insira o seu Documento!',
+        'nome.required' => 'Por favor, Insira um Nome',
+        'nome.min' => 'Nome não atingiu letras minimas!',
+
+        'endereco.required' => 'Por favor, Insira um Endereço!',
+        'endereco.min' => 'Endereço não atingiu letras minimas!',
+
+
+        'email.required' => 'Por favor, Insira um E-mail!',
+        'email.min' => 'E-mail não atingiu letras minimas!',
+
+
+        'telefone.required' => 'Por favor, Insira um Telefone!',
+        'telefone.min' => 'Telefone não atingiu letras minimas!',
+
+
+        'tipo.required' => 'Por favor, Selecione um Tipo!',
+        'tipo.min' => 'Por favor, Selecione um Tipo!',
+
+
+        'documento.unique' => 'Por favor, Insira o seu Documento!',
+        'documento.min' => 'Por favor, Insira o seu Documento!',
+
         ];
     }
 }

@@ -13,7 +13,7 @@ class StoreUpdateRamais extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class StoreUpdateRamais extends FormRequest
     public function rules()
     {
         return [
-            //
+            'ramal' => ['required'],
+            'nome_ramal' => ['required'],
+            'tipo' => ['required'],
+            'bina' => ['required'],
+            'cliente_id' => ['required'],
+        ];
+    }
+    public function messages(){
+        return [
+            'ramal.required'=>'Campo obrigatorio'
+
+            
         ];
     }
 }

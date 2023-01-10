@@ -8,7 +8,7 @@
     <title>@yield('name') - {{ config('app.name') }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-    <link rel="stylesheet" href="resources/css/app.css">
+    <link rel="stylesheet" href="{{ url('resources/css/style.css')}}">
     <script src="https://kit.fontawesome.com/33101b64c0.js" crossorigin="anonymous"></script>
 
 <body>
@@ -43,7 +43,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('ramais.show')}}">
                                 Ramais
                             </a>
                         </li>

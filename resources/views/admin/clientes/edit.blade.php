@@ -37,12 +37,12 @@
                         <div class="form-floating">
                             <select class="form-select form-floating" id="floatingSelect"
                                 aria-label="Floating label select example" name="tipo">
-                                <option value="Fisico" <?php if ($clientes['tipo'] == 'Fisico') {
+                                <option value="Fisico" @php if ($clientes['tipo'] == 'Fisico') {
                                     echo 'selected';
-                                } ?>>Fisico</option>
-                                <option value="Juridico" <?php if ($clientes['tipo'] == 'Juridico') {
+                                } @endphp>Fisico</option>
+                                <option value="Juridico" @php if ($clientes['tipo'] == 'Juridico') {
                                     echo 'selected';
-                                } ?>>Juridico</option>
+                                } @endphp>Juridico</option>
                             </select>
                             <label for="floatingSelect">Tipo</label>
                         </div>

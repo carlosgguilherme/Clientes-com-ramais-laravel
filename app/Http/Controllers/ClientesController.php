@@ -10,10 +10,8 @@ use Illuminate\Http\Request;
 class ClientesController extends Controller
 {
     public function index()
-    {
-        $clientes = clientes::get();
-        
-        return view('admin.clientes.index',compact('clientes'));
+    {  
+        return view('admin.clientes.index');
     }
     public function edit($id)
     {
@@ -45,10 +43,10 @@ class ClientesController extends Controller
       return view('admin.clientes.create', compact('clientes'));
     }
     public function store(StoreUpdateCliente $request){
-    
         $data = $request->all();
     
         clientes::create($data);
+   
         return redirect()
           ->route('clientes.show')
           ->with('message', 'Cliente criado com sucesso');
@@ -59,6 +57,7 @@ class ClientesController extends Controller
           return redirect()->back();
       }
       $clientes->update($request->all());
+    
       return redirect()
       ->route('clientes.show') 
       ->with('message', 'O Cliente foi editado com sucesso');
