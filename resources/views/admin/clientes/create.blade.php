@@ -10,7 +10,7 @@
     <form class="form-floating" action="{{ route('clientes.store') }}" method="post">
         <section class="content" class="background">
             <div class="content-title nav flex-column nav justify-content-left">
-                <div class="container-fluid">
+                <div class="container-fluid ConteudoCard">
                     @csrf
                     <input type="hidden" name="c" value="c">
                     <div class="col-md-6">

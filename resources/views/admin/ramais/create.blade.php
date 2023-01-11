@@ -9,7 +9,7 @@
 <section class="card">
     <section class="content" class="background">
         <div class="content-title nav flex-column nav justify-content-left">
-            <div class="container-fluid">
+            <div class="container-fluid ConteudoCard">
                 <form class="form-floating" action="{{ route('ramais.store') }}" method="post">
                     @csrf
                     <input type="hidden" name="n" value="n">
