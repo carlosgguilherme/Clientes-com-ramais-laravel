@@ -2,9 +2,14 @@
 <section class="card">
     <div class="card">
         <div class="card-header ">
-         
+
             <td><a href="{{ route('clientes.create') }}"><button class="btn btn-success btn-sm" type="submit">Criar
                         Cliente</button></a></td>
+        </div>
+        <div class="input-group">
+            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                aria-describedby="search-addon" />
+            <button type="button" class="btn btn-outline-primary">search</button>
         </div>
         <section class="content" class="background">
             <div class="content-title nav flex-column nav justify-content-left">
@@ -52,17 +57,24 @@
                                                         class="btn btn-primary btn-sm"
                                                         type="submit">Editar</button></a>
                                             </td>
-                                            </form>
                                     </tr>
-                                    @endforeach
-                                    @if (session('message'))
-                                        <div class="alert alert-success" role="alert">
-                                            {{ session('message') }}
-                                        </div>
-                                    @endif
-                                    @if (session('messageDelete'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ session('messageDelete') }}
-                                        </div>
-                                    @endif
-                                    @extends('admin.layouts.footer')
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+@endforeach
+@if (session('message'))
+    <div class="alert alert-success" role="alert">
+        {{ session('message') }}
+    </div>
+@endif
+@if (session('messageDelete'))
+    <div class="alert alert-danger" role="alert">
+        {{ session('messageDelete') }}
+    </div>
+@endif

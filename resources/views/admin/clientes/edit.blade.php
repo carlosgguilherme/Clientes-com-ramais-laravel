@@ -1,9 +1,11 @@
 @include('admin.layouts.header')
+
 @if (session('messages'))
-<div class="btn btn-success">
-    {{ session('messages') }}
-</div>
+    <div class="btn btn-success">
+        {{ session('messages') }}
+    </div>
 @endif
+
 <section class="card">
     <section class="content" class="background">
         <div class="content-title nav flex-column nav justify-content-left">
@@ -11,10 +13,10 @@
                 <form action="{{ route('clientes.update', $clientes->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')
-                    
+
                     <div class="col-md-6">
                         <h3>Editar Clientes</h3>
-                        <input type="hidden" name="id" value="{{$clientes->id}}">
+                        <input type="hidden" name="id" value="{{ $clientes->id }}">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="nome" name="nome"
                                 value="{{ $clientes->nome ?? old('nome') }}">
@@ -65,11 +67,8 @@
                         <button type="submit" class="btn btn-primary">Salvar</button>
                         <a class="btn btn-primary" href="{{ route('clientes.show') }}">Voltar</a>
                     </div>
+                </form>
             </div>
         </div>
     </section>
-
-    </html>
-    </form>
 </section>
-    @extends('admin.layouts.footer')

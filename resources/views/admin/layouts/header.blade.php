@@ -10,6 +10,7 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://kit.fontawesome.com/33101b64c0.js" crossorigin="anonymous"></script>
+</head>
 
 <body>
     <nav class="navbar bg-light">
@@ -43,10 +44,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('ramais.show')}}">
+                            <a class="nav-link" href="{{ route('ramais.show') }}">
                                 Ramais
                             </a>
                         </li>
                 </div>
             </div>
         </section>
+    </section>
+</body>
+
+</html>

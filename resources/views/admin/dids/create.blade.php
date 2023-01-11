@@ -1,11 +1,11 @@
 @include('admin.layouts.header')
-<section class="card">
 
-    @if (session('messages'))
-        <div class="btn btn-success">
-            {{ session('messages') }}
-        </div>
-    @endif
+@if (session('messages'))
+    <div class="btn btn-success">
+        {{ session('messages') }}
+    </div>
+@endif
+
 <section class="card">
     <section class="content" class="background">
         <div class="content-title nav flex-column nav justify-content-left">
@@ -35,16 +35,18 @@
                                 aria-label="Floating label select example" name="cliente_id">
 
                                 <option selected>Selecione</option>
-                                    @foreach ($clientes as $cliente) 
-                                <option value="{{ $cliente->id}}">{{ $cliente->nome}}</option>
+                                @foreach ($clientes as $cliente)
+                                    <option value="{{ $cliente->id }}">{{ $cliente->nome }}</option>
                                 @endforeach
                             </select>
                             <label for="floatingSelect">Clientes</label>
                         </div>
                         <br>
                         <button type="submit" class="btn btn-primary">Salvar</button>
-                        <a class="btn btn-primary" href="{{ route('dids.show')}}">Voltar</a>
+                        <a class="btn btn-primary" href="{{ route('dids.show') }}">Voltar</a>
                     </div>
                 </form>
+            </div>
+        </div>
     </section>
-@include('admin.layouts.footer')
+</section>

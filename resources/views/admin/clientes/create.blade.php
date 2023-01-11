@@ -1,10 +1,11 @@
 @include('admin.layouts.header')
-@if (session('messages'))
-<div class="btn btn-success">
-    {{ session('messages') }}
-</div>
 
+@if (session('messages'))
+    <div class="btn btn-success">
+        {{ session('messages') }}
+    </div>
 @endif
+
 <section class="card">
     <form class="form-floating" action="{{ route('clientes.store') }}" method="post">
         <section class="content" class="background">
@@ -82,10 +83,12 @@
                         <button type="submit" class="btn btn-primary">Salvar</button>
                         <a class="btn btn-primary" href="{{ route('clientes.show') }}">Voltar</a>
                     </div>
-
+                </div>
+            </div>
+        </section>
     </form>
-    </div>
-    </div>
 </section>
+
+
 
 </html>
