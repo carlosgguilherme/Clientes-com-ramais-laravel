@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUpdateCliente;
+use App\Http\Requests\UpdateClientes;
 use App\Models\clientes;
 use Illuminate\Http\Request;
 
@@ -52,7 +53,7 @@ class ClientesController extends Controller
           ->with('message', 'Cliente criado com sucesso');
 
     }
-    public function update(StoreUpdateCliente $request, $id){
+    public function update(UpdateClientes $request, $id){
         if(!$clientes = clientes::find($id)){
           return redirect()->back();
       }
