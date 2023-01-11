@@ -1,11 +1,11 @@
 @include('admin.layouts.header')
-<section class="card">
+@if (session('messages'))
+<div class="btn btn-success">
+    {{ session('messages') }}
+</div>
 
-    @if (session('messages'))
-        <div class="btn btn-success">
-            {{ session('messages') }}
-        </div>
-    @endif
+@endif
+<section class="card">
     <form class="form-floating" action="{{ route('clientes.store') }}" method="post">
         <section class="content" class="background">
             <div class="content-title nav flex-column nav justify-content-left">

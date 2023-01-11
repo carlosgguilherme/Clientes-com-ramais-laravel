@@ -1,15 +1,20 @@
 @include('admin.layouts.header')
-
-<form action="{{ route('clientes.update', $clientes->id) }}" method="post" enctype="multipart/form-data">
-    @method('PUT')
-    @csrf
-    <section class="card">
-        <section class="content" class="background">
-            <div class="content-title nav flex-column nav justify-content-left">
-                <div class="container-fluid">
-                    <input type="hidden" name="c" value="c">
+@if (session('messages'))
+<div class="btn btn-success">
+    {{ session('messages') }}
+</div>
+@endif
+<section class="card">
+    <section class="content" class="background">
+        <div class="content-title nav flex-column nav justify-content-left">
+            <div class="container-fluid">
+                <form action="{{ route('clientes.update', $clientes->id) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('put')
+                    
                     <div class="col-md-6">
                         <h3>Editar Clientes</h3>
+                        <input type="hidden" name="id" value="{{$clientes->id}}">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="nome" name="nome"
                                 value="{{ $clientes->nome ?? old('nome') }}">
@@ -37,12 +42,16 @@
                         <div class="form-floating">
                             <select class="form-select form-floating" id="floatingSelect"
                                 aria-label="Floating label select example" name="tipo">
-                                <option value="Fisico" @php if ($clientes['tipo'] == 'Fisico') {
+                                <option value="Fisico"
+                                    @php if ($clientes['tipo'] == 'Fisico') {
                                     echo 'selected';
-                                } @endphp>Fisico</option>
-                                <option value="Juridico" @php if ($clientes['tipo'] == 'Juridico') {
+                                } @endphp>
+                                    Fisico</option>
+                                <option value="Juridico"
+                                    @php if ($clientes['tipo'] == 'Juridico') {
                                     echo 'selected';
-                                } @endphp>Juridico</option>
+                                } @endphp>
+                                    Juridico</option>
                             </select>
                             <label for="floatingSelect">Tipo</label>
                         </div>
@@ -56,11 +65,11 @@
                         <button type="submit" class="btn btn-primary">Salvar</button>
                         <a class="btn btn-primary" href="{{ route('clientes.show') }}">Voltar</a>
                     </div>
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        </html>
-</form>
-
-@extends('admin.layouts.footer')
+    </html>
+    </form>
+</section>
+    @extends('admin.layouts.footer')

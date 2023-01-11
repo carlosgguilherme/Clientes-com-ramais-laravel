@@ -25,7 +25,7 @@ class StoreUpdateCliente extends FormRequest
      */
     public function rules()
     {   
-        $id = $this->segment(3);
+        $id = $this->segment(2);
         
         return [
           
@@ -38,7 +38,7 @@ class StoreUpdateCliente extends FormRequest
 
         ],
             'telefone' => ['required','min:8'],
-            'tipo' => ['required','min:5'],
+            'tipo' => ['required'],
             'documento' => [
 
                 'required',
@@ -68,7 +68,7 @@ class StoreUpdateCliente extends FormRequest
         'tipo.required' => 'Por favor, Selecione um Tipo!',
         'tipo.min' => 'Por favor, Selecione um Tipo!',
 
-
+        'documento.required' => 'Por favor, Insira um Documento!',
         'documento.unique' => 'Por favor, Insira o seu Documento!',
         'documento.min' => 'Por favor, Insira o seu Documento!',
 
