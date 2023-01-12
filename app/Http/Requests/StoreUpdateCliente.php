@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\clientes;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule as ValidationRule;
@@ -25,7 +26,6 @@ class StoreUpdateCliente extends FormRequest
      */
     public function rules()
     {   
-        $id = $this->segment(2);
         
         return [
           
@@ -34,7 +34,7 @@ class StoreUpdateCliente extends FormRequest
             'email' => [
 
                 'required',
-                'email' => 'required|email|unique:clientes,email,'.$this->user->id,
+               
 
         ],
             'telefone' => ['required','min:8'],
@@ -42,7 +42,7 @@ class StoreUpdateCliente extends FormRequest
             'documento' => [
 
                 'required',
-                'documento' => 'required|documento|unique:clientes,documento,'.$this->user->id,
+               
 
             ],
         ];

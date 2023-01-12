@@ -54,6 +54,12 @@ class ClientesController extends Controller
 
     }
     public function update(StoreUpdateCliente $request, $id){
+      {
+        $request->validate([
+          'email' => 'required|email|unique:clientes,email,'.$id,
+          // 'documento' => 'required|documento|unique:clientes,documento,'.$id,
+      ]);
+      }
         if(!$clientes = clientes::find($id)){
           return redirect()->back();
       }

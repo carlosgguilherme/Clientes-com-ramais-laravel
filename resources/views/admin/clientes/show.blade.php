@@ -2,22 +2,20 @@
 <section class="card">
     <div class="card">
         <div class="card-header ">
-
             <td><a href="{{ route('clientes.create') }}"><button class="btn btn-success btn-sm" type="submit">Criar
                         Cliente</button></a></td>
         </div>
-        <div class="input-group">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                aria-describedby="search-addon" />
-            <button type="button" class="btn btn-outline-primary">search</button>
-        </div>
+        {{-- <form action="{{ route('clientes.search') }}" method="post">
+            <div class="input-group">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" />
+                <button type="button" class="btn btn-outline-primary">search</button>
+            </div>
+        </form> --}}
         <section class="content" class="background">
             <div class="content-title nav flex-column nav justify-content-left">
                 <div class="container-fluid">
-
-
-                    <br>
-                    <ul class="nav flex-column nav justify-content-left" style="margin-left: 1px;margin-right: 1px;">
+                    <ul class="nav flex-column nav justify-content-left ConteudoCard" style="margin-left: 1px;margin-right: 1px;">
                         <li class="nav-item">
                             <h3>CLIENTES</h3>
                             <table class="table">
@@ -42,22 +40,23 @@
                                             <td>{{ $cliente->endereco }}</td>
                                             <td>{{ $cliente->tipo }}</td>
                                             <td>{{ $cliente->documento }}</td>
+                                         
 
-                                            <td>
-                                                <form method="post"
-                                                    action="{{ route('clientes.destroy', $cliente->id) }}">
-                                                    @csrf
+                                            <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}">
+                                                @csrf <td>
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <button class="btn btn-danger btn-sm"
                                                         type="submit">Deletar</button>
-                                                </form>
-                                            </td>
+                                                </td>
+                                            </form>
+
                                             <td>
                                                 <a href="{{ route('clientes.edit', $cliente->id) }}"><button
                                                         class="btn btn-primary btn-sm"
                                                         type="submit">Editar</button></a>
                                             </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </li>
@@ -67,7 +66,7 @@
         </section>
     </div>
 </section>
-@endforeach
+
 @if (session('message'))
     <div class="alert alert-success" role="alert">
         {{ session('message') }}
