@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreUpdateCliente;
-use App\Http\Requests\UpdateClientes;
 use App\Models\clientes;
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
-
+use Illuminate\Validation\Rule as ValidationRule;
 
 class ClientesController extends Controller
 {
@@ -60,9 +61,6 @@ class ClientesController extends Controller
                             ->with('message', 'Não fopi possível editar');
       }
       $clientes->update($request->all());
-
-      // $clientes->validate([
-      //   'email' => 'required|email|unique:clientes,email,'.$id, ]);
       return redirect()
       ->route('clientes.show') 
       ->with('message', 'O Cliente foi editado com sucesso');

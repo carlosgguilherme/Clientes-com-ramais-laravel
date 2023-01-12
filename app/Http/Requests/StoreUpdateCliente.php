@@ -32,12 +32,7 @@ class StoreUpdateCliente extends FormRequest
           
             'nome' => ['required','min:3','max:160'],
             'endereco' => ['required','min:5','max:160'],
-           
-            Rule::unique('email')->ignore($id),
-
-
-             
-        
+            'email' => [Rule::unique('clientes')->ignore($id)],
             'telefone' => ['required','min:8'],
             'tipo' => ['required'],
             'documento' => [    'required',],
