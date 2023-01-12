@@ -25,17 +25,19 @@ class StoreUpdateCliente extends FormRequest
      */
     public function rules()
     {
-        $id = $this->segment(2);
+        $id = $this->segment(3);
+
         return [
+           
           
             'nome' => ['required','min:3','max:160'],
             'endereco' => ['required','min:5','max:160'],
-            'email' => [
-                'required',
-                Rule::unique('clientes')->ignore($id),
-                'min:10',
-                'max:30',
-            ],
+           
+            Rule::unique('email')->ignore($id),
+
+
+             
+        
             'telefone' => ['required','min:8'],
             'tipo' => ['required'],
             'documento' => [    'required',],
@@ -43,6 +45,8 @@ class StoreUpdateCliente extends FormRequest
     }
     public function messages()
     {
+      
+
         return[
         'nome.required' => 'Por favor, Insira um Nome',
         'nome.min' => 'Nome não atingiu letras minimas!',

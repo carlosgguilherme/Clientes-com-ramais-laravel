@@ -47,10 +47,12 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
            
         });
-        $this->renderable(function (QueryException $e, $request) {
-            return redirect()
-          ->route('clientes.show') 
-          ->with('messageDelete', 'Não é possivel deletar este cliente, termine suas conexões');;
+        $this->renderable(function (QueryException $e) {
+            if (!$e) {
+                return redirect()
+                ->route('clientes.show') 
+                ->with('messageDelete', 'Não é possivel deletar este cliente, termine suas conexões');
+            }
         });
-    }
+    }   
 }
