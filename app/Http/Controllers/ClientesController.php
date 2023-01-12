@@ -54,17 +54,15 @@ class ClientesController extends Controller
 
     }
     public function update(StoreUpdateCliente $request, $id){
-      {
-        $request->validate([
-          'email' => 'required|email|unique:clientes,email,'.$id,
-          // 'documento' => 'required|documento|unique:clientes,documento,'.$id,
-      ]);
-      }
-        if(!$clientes = clientes::find($id)){
-          return redirect()->back();
+    $clientes = clientes::find($id);
+        if(!$clientes){  
+          return redirect()->back()
+                            ->with('message', 'Não fopi possível editar');
       }
       $clientes->update($request->all());
-    
+
+      // $clientes->validate([
+      //   'email' => 'required|email|unique:clientes,email,'.$id, ]);
       return redirect()
       ->route('clientes.show') 
       ->with('message', 'O Cliente foi editado com sucesso');

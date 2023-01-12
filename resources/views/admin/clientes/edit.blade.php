@@ -19,25 +19,28 @@
                         <input type="hidden" name="id" value="{{ $clientes->id }}">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="nome" name="nome"
-                                value="{{ $clientes->nome ?? old('nome') }}">
+                                value="{{ $clientes->nome }}">
                             <label for="floatingInputValue">Nome</label>
                         </div>
                         <br>
                         <div class="form-floating">
                             <input type="number" class="form-control" id="telefone" name="telefone"
-                                value="{{ $clientes->telefone ?? old('telefone') }}">
+                                value="{{ $clientes->telefone}}">
                             <label for="floatingInputValue">Telefone</label>
                         </div>
                         <br>
                         <div class="form-floating">
-                            <input type="email" class="form-control" id="email" name="email"
-                                value="{{ $clientes->email ?? old('email') }}">
+                            <input type="email" class="form-control @error ('email') is-invalid @enderror" id="email" name="email"
+                                value="{{ $clientes->email }}">
                             <label for="floatingInputValue">Email</label>
+                                @error('email')
+                                    <div class="alert alert-danger"> {{ $message }}</div>
+                                @enderror
                         </div>
                         <br>
                         <div class="form-floating">
                             <input type="text" class="form-control" id="endereco" name="endereco"
-                                value="{{ $clientes->endereco ?? old('endereco') }}">
+                                value="{{ $clientes->endereco}}">
                             <label for="floatingInputValue">Endereço</label>
                         </div>
                         <br>
@@ -60,7 +63,7 @@
                         <br>
                         <div class="form-floating">
                             <input type="text" class="form-control" name="documento"
-                                value="{{ $clientes->documento ?? old('documento') }}">
+                                value="{{ $clientes->documento }}">
                             <label for="floatingInputValue">CPF/CNPJ</label>
                         </div>
                         <br>
