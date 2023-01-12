@@ -34,7 +34,7 @@ class StoreUpdateCliente extends FormRequest
             'email' => [
 
                 'required',
-                "unique:clientes,email,($id),id"
+                'email' => 'required|email|unique:clientes,email,'.$this->user->id,
 
         ],
             'telefone' => ['required','min:8'],
@@ -42,7 +42,7 @@ class StoreUpdateCliente extends FormRequest
             'documento' => [
 
                 'required',
-                "unique:clientes,documento,($id),id"
+                'documento' => 'required|documento|unique:clientes,documento,'.$this->user->id,
 
             ],
         ];

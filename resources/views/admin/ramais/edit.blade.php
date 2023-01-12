@@ -63,7 +63,7 @@
                                 aria-label="Floating label select example" name="cliente_id">
                                 @foreach ($clientes as $cliente)
                                     <option value="{{ $cliente->id }}"
-                                        @if ($cliente->id === $ramais->cliente_id) {{ 'selected'; }} @endif>
+                                        @if ($cliente->id === $ramais->cliente_id) {{ 'selected' }} @endif>
                                         {{ $cliente->nome }}</option>
                                 @endforeach
                             </select>

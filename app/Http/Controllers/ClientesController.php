@@ -53,7 +53,7 @@ class ClientesController extends Controller
           ->with('message', 'Cliente criado com sucesso');
 
     }
-    public function update(UpdateClientes $request, $id){
+    public function update(StoreUpdateCliente $request, $id){
         if(!$clientes = clientes::find($id)){
           return redirect()->back();
       }
