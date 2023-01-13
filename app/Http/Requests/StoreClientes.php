@@ -31,10 +31,10 @@ class StoreClientes extends FormRequest
           
             'nome' => ['required','min:3','max:160'],
             'endereco' => ['required','min:5','max:160'],
-            'email' => ['required',Rule::unique('clientes')->ignore($id)],
-            'telefone' => ['required','min:8'],
-            'tipo' => ['required','max:3'],
-            'documento' => ['required',Rule::unique('clientes')->ignore($id)],
+            'email' => ['required',Rule::unique('clientes')->ignore($id),'max:30'],
+            'telefone' => ['required','min:8','max:15'],
+            'tipo' => ['required','max:8'],
+            'documento' => ['required',Rule::unique('clientes')->ignore($id),'min:11','max:14'],
         ];
     }
     public function messages()

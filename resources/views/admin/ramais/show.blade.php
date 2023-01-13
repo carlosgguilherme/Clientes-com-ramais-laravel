@@ -1,5 +1,15 @@
 @include('admin.layouts.header')
 <section class="card">
+    @if (session('message'))
+        <div class="alert alert-success" role="alert">
+            {{ session('message') }}
+        </div>
+    @endif
+    @if (session('messageDelete'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('messageDelete') }}
+        </div>
+    @endif
     <div>
         <div class="card-header">
 
@@ -57,13 +67,3 @@
         </section>
     </div>
 </section>
-@if (session('message'))
-    <div class="alert alert-success" role="alert">
-        {{ session('message') }}
-    </div>
-@endif
-@if (session('messageDelete'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('messageDelete') }}
-    </div>
-@endif

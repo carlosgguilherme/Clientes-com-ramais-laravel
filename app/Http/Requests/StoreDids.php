@@ -24,8 +24,8 @@ class StoreDids extends FormRequest
     public function rules()
     {
         return [
-         'numero' => ['required'],
-         'descricao' => ['required'],
+         'numero' => ['required','max:14'],
+         'descricao' => ['required','max:160'],
          'cliente_id' => ['required'],
         ];
     } public function messages()
