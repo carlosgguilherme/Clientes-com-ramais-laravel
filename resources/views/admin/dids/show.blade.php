@@ -1,7 +1,7 @@
 @include('admin.layouts.header')
 <section class="card">
-    <div class="card">
-        <div class="card-header row">
+    <div>
+        <div class="card-header">
 
             <td><a href="{{ route('dids.create') }}"><button class="btn btn-success btn-sm" type="submit">Criar
                         Dids</button></a></td>
@@ -42,6 +42,7 @@
                                                         type="submit">Editar</button></a>
                                             </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </li>
@@ -51,7 +52,8 @@
         </section>
     </div>
 </section>
-@endforeach
+
+
 @if (session('message'))
     <div class="alert alert-success" role="alert">
         {{ session('message') }}
