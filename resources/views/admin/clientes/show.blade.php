@@ -11,7 +11,7 @@
         {{ session('messageDelete') }}
     </div>
 @endif
-    <div class="card">
+    <div>
         <div class="card-header ">
             <td><a href="{{ route('clientes.create') }}"><button class="btn btn-success btn-sm" type="submit">Criar
                         Cliente</button></a></td>
