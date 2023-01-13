@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreDids;
 use App\Http\Requests\StoreUpdateDids;
+use App\Http\Requests\UpdateDids;
 use App\Models\clientes;
 use App\Models\dids;
 use Illuminate\Http\Request;
@@ -46,7 +48,7 @@ class DidsController extends Controller
     }
     return view('admin.dids.edit', compact('dids', 'clientes'));
   }
-  public function store(StoreUpdateDids $request)
+  public function store(StoreDids $request)
   {
 
     dids::create($request->all());
@@ -54,7 +56,7 @@ class DidsController extends Controller
       ->route('dids.show')
       ->with('message', 'Dids criado com sucesso');
   }
-  public function update(StoreUpdateDids $request, $id)
+  public function update(UpdateDids $request, $id)
   {
     if (!$dids = dids::find($id)) {
       return redirect()->back();

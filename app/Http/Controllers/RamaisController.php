@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRamais;
 use App\Http\Requests\StoreUpdateRamais;
+use App\Http\Requests\UpdateRamais;
 use App\Models\clientes;
 use App\Models\ramais;
 use Illuminate\Contracts\Cache\Store;
@@ -43,13 +45,13 @@ class RamaisController extends Controller
         return view('admin.ramais.edit', compact('ramais', 'clientes'));
 
     }
-    public function store(StoreUpdateRamais $request){
+    public function store(StoreRamais $request){
         ramais::create($request->all());
         return redirect()
             ->route('ramais.show')
             ->with('message', 'Ramal criado com sucesso');
     }
-    public function update(StoreUpdateRamais $request, $id){
+    public function update(UpdateRamais $request, $id){
         if(!$ramais = ramais::find($id)){
             return redirect()->back();
         }

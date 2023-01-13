@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClientes;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreUpdateCliente;
+use App\Http\Requests\UpdateClientes;
 use App\Models\clientes;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
@@ -44,7 +46,7 @@ class ClientesController extends Controller
 
       return view('admin.clientes.create', compact('clientes'));
     }
-    public function store(StoreUpdateCliente $request){
+    public function store(StoreClientes $request){
         $data = $request->all();
     
         clientes::create($data);
@@ -54,11 +56,11 @@ class ClientesController extends Controller
           ->with('message', 'Cliente criado com sucesso');
 
     }
-    public function update(StoreUpdateCliente $request, $id){
+    public function update(UpdateClientes $request, $id){
     $clientes = clientes::find($id);
         if(!$clientes){  
           return redirect()->back()
-                            ->with('message', 'Não fopi possível editar');
+                            ->with('message', 'Não foi possível editar');
       }
       $clientes->update($request->all());
       return redirect()

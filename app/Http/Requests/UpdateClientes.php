@@ -2,11 +2,9 @@
 
 namespace App\Http\Requests;
 
-
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-
-class StoreUpdateCliente extends FormRequest
+use Illuminate\Foundation\Http\FormRequest;
+class UpdateClientes extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,13 +27,12 @@ class StoreUpdateCliente extends FormRequest
 
         return [
            
-          
             'nome' => ['required','min:3','max:160'],
             'endereco' => ['required','min:5','max:160'],
-            'email' => [Rule::unique('clientes')->ignore($id)],
+            'email' => ['required',Rule::unique('clientes')->ignore($id)],
             'telefone' => ['required','min:8'],
-            'tipo' => ['required'],
-            'documento' => [    'required',],
+            'tipo' => ['required','max:8'],
+            'documento' => ['required',Rule::unique('clientes')->ignore($id)],
         ];
     }
     public function messages()
@@ -62,10 +59,11 @@ class StoreUpdateCliente extends FormRequest
 
 
         'tipo.required' => 'Por favor, Selecione um Tipo!',
-        'tipo.min' => 'Por favor, Selecione um Tipo!',
+        'tipo.max' => 'Por favor, Selecione um Tipo!',
 
         'documento.required' => 'Por favor, Insira um Documento!',
-        'documento.min' => 'Por favor, Insira o seu Documento!',
+            'documento.unique' => 'Documento ja existente, verique se inseriu corretamente',
+            'documento.min' => 'Por favor, Insira o seu Documento!',
 
         ];
     }

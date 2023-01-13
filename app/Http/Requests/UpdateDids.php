@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdateDids extends FormRequest
+class UpdateDids extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,8 +31,9 @@ class StoreUpdateDids extends FormRequest
     } public function messages()
     {
         return[
-            'numero' => 'ERRO',
-            'descricao' => 'ERRO',
+            'numero.required' => 'Campo Obrigatorio',
+            'descricao.required' => 'Campo Obrigatorio',
+            'cliente_id.required' => 'Campo Obrigatorio'
         ];
     }
 }

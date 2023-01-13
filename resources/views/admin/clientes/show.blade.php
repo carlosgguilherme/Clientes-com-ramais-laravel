@@ -1,5 +1,16 @@
 @include('admin.layouts.header')
+
 <section class="card">
+    @if (session('message'))
+    <div class="alert alert-success" role="alert">
+        {{ session('message') }}
+    </div>
+@endif
+@if (session('messageDelete'))
+    <div class="alert alert-danger" role="alert">
+        {{ session('messageDelete') }}
+    </div>
+@endif
     <div class="card">
         <div class="card-header ">
             <td><a href="{{ route('clientes.create') }}"><button class="btn btn-success btn-sm" type="submit">Criar
@@ -67,13 +78,4 @@
     </div>
 </section>
 
-@if (session('message'))
-    <div class="alert alert-success" role="alert">
-        {{ session('message') }}
-    </div>
-@endif
-@if (session('messageDelete'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('messageDelete') }}
-    </div>
-@endif
+

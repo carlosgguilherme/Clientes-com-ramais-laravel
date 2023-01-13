@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdateRamais extends FormRequest
+class UpdateRamais extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,7 +33,11 @@ class StoreUpdateRamais extends FormRequest
     }
     public function messages(){
         return [
-            'ramal.required'=>'Campo obrigatorio'
+            'ramal.required'=>'Campo obrigatorio',
+            'nome_ramal.required'=>'Campo obrigatorio',
+            'tipo.required'=>'Campo obrigatorio',
+            'bina.required'=>'Campo obrigatorio',
+            'cliente_id.required'=>'Campo obrigatorio'
 
             
         ];
