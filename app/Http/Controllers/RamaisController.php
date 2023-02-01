@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRamais;
-use App\Http\Requests\StoreUpdateRamais;
 use App\Http\Requests\UpdateRamais;
 use App\Models\clientes;
 use App\Models\ramais;
-use Illuminate\Contracts\Cache\Store;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class RamaisController extends Controller

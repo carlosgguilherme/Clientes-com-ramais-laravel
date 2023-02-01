@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreDids;
-use App\Http\Requests\StoreUpdateDids;
 use App\Http\Requests\UpdateDids;
 use App\Models\clientes;
 use App\Models\dids;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class DidsController extends Controller

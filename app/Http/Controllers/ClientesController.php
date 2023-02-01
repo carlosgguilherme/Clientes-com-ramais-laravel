@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreUpdateCliente;
 use App\Http\Requests\UpdateClientes;
 use App\Models\clientes;
-use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule as ValidationRule;
 
 class ClientesController extends Controller
 {
