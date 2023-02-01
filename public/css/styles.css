@@ -13,6 +13,7 @@ body{
   }
   .background {
     background-color: gray;
+    margin-bottom: 100px;
   
   }
   .container-fluid {
@@ -47,6 +48,11 @@ body{
   margin-bottom: 21px;
    
   }
+  .ConteudoCardRelations{
+    margin-top: 21px;
+    margin-bottom: 21px;
+     
+    }
   .table-responsive{
     padding: 5px;
   }
@@ -57,4 +63,13 @@ body{
   
   
   }
+  .contentRelations{
+   
+    overflow: auto;
+    box-shadow: 2px 2px 30px 1px rgba(128, 128, 128, 0.161);
+    margin-bottom: 20px;
+  
+  
+  }
+  
   

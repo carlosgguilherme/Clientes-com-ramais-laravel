@@ -15,19 +15,26 @@ class ClientesController extends Controller
 {
     public function index()
     {  
-        return view('admin.clientes.index');
+        return view('welcome');
     }
     public function edit($id)
     {
         if(!$clientes = clientes::find($id)){
           return redirect()->back();
         }
-        return view('admin.clientes.edit', compact('clientes'));
+        return view('admin.clientes.edit', compact('clientes'));  
     }
     public function show()
     {
-        $clientes = clientes::get();
+        $clientes = clientes::with(['dids', 'ramais'])->get();
+;  
         return view('admin.clientes.show', compact('clientes'));
+    }
+    public function relations()
+    {
+        $clientes = clientes::with(['dids', 'ramais'])->get();
+;  
+        return view('admin.clientes.relations', compact('clientes'));
     }
     public function destroy($id){
     
@@ -56,18 +63,18 @@ class ClientesController extends Controller
           ->with('message', 'Cliente criado com sucesso');
 
     }
-    public function update(UpdateClientes $request, $id){
-    $clientes = clientes::find($id);
-        if(!$clientes){  
-          return redirect()->back()
-                            ->with('message', 'Não foi possível editar');
-      }
-      $clientes->update($request->all());
-      return redirect()
-      ->route('clientes.show') 
-      ->with('message', 'O Cliente foi editado com sucesso');
-    
-      }
+      public function update(UpdateClientes $request, $id){
+      $clientes = clientes::find($id);
+          if(!$clientes){  
+            return redirect()->back()
+                              ->with('message', 'Não foi possível editar');
+        }
+        $clientes->update($request->all());
+        return redirect()
+        ->route('clientes.show') 
+        ->with('message', 'O Cliente foi editado com sucesso');
+      
+        }
       public function search(Request $request){
         $filters = $request->except('_token');
         $clientes = clientes::where('nome','LIKE', "%{$request->search}%")

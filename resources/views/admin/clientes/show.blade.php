@@ -26,9 +26,9 @@
         <section class="content" class="background">
             <div class="content-title nav flex-column nav justify-content-left">
                 <div class="container-fluid">
-                    <ul class="nav flex-column nav justify-content-left ConteudoCard" style="margin-left: 1px;margin-right: 1px;">
+                    <ul class="nav flex-column nav justify-content-left" style="margin-left: 1px;margin-right: 1px;">
                         <li class="nav-item">
-                            <h3>CLIENTES</h3>
+                            <p><h3>CLIENTES</h3></p>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -56,7 +56,7 @@
                                             <form method="post" action="{{ route('clientes.destroy', $cliente->id) }}">
                                                 @csrf <td>
                                                     <input type="hidden" name="_method" value="DELETE">
-                                                    <button class="btn btn-danger btn-sm"
+                                                    <button onclick="return confirm('Quer realmente excluir?')" class="btn btn-danger btn-sm"
                                                         type="submit">Deletar</button>
                                                 </td>
                                             </form>

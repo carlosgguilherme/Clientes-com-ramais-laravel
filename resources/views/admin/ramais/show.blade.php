@@ -22,7 +22,7 @@
                 <div class="container-fluid">
                     <ul class="nav flex-column nav justify-content-left" style="margin-left: 1px;margin-right: 1px;">
                         <li class="nav-item">
-                            <h3>Ramais</h3>
+                            <p><h3>RAMAIS</h3></p>
                             <table class="table">
                                 <thead>
                                     <tr>

@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\DidsController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RamaisController;
 use Illuminate\Support\Facades\Route;
 
+
+
+Route::get('/', [ClientesController::class, 'index'])->name('index');
 
 Route::get('/ramais', [RamaisController::class, 'index'])->name('ramais.index');
 Route::get('/ramais/create', [RamaisController::class, 'create'])->name('ramais.create');
@@ -25,12 +27,12 @@ Route::delete('/dids/{id}', [DidsController::class, 'destroy'])->name('dids.dest
 Route::post('/dids', [DidsController::class, 'store'])->name('dids.store');
 
 
-Route::get('/clientes', [ClientesController::class, 'index'])->name('clientes.index');
 Route::post('/clientes', [ClientesController::class, 'store'])->name('clientes.store');
 Route::get('/clientes/create', [ClientesController::class, 'create'])->name('clientes.create');
 Route::get('/clientes/edit/{id}', [ClientesController::class, 'edit'])->name('clientes.edit');
 Route::put('/clientes/update/{id}', [ClientesController::class, 'update'])->name('clientes.update');
 Route::get('/clientes/show', [ClientesController::class, 'show'])->name('clientes.show');
+Route::get('/clientes/relations', [ClientesController::class, 'relations'])->name('relations.show');
 Route::delete('/clientes/{id}', [ClientesController::class, 'destroy'])->name('clientes.destroy');
 Route::any('/clientes/search', [ClientesController::class, 'search'])->name('clientes.search');
 

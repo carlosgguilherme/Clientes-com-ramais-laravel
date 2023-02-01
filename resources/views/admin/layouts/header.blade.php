@@ -15,7 +15,7 @@
 <body>
     <nav class="navbar bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('clientes.index') }}">
+            <a class="navbar-brand" href="{{ route('index') }}">
                 <img src="https://sitezindocarlos.vercel.app/image/logo-azul-com-texto.png" alt="Logo"
                     width="220.767px" height="85.8px">
 
@@ -46,6 +46,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('ramais.show') }}">
                                 Ramais
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('relations.show') }}">
+                                Clientes com Relações
                             </a>
                         </li>
                 </div>
